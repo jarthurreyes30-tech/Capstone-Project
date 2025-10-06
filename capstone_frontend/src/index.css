@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Brand Colors - Charity Platform Palette */
+    --brand-accent: 40 95% 46%;        /* #ECA400 - Primary CTAs, highlights */
+    --brand-success: 74 67% 86%;       /* #EAF8BF - Success states, soft backgrounds */
+    --brand-secondary: 195 100% 29%;   /* #006992 - Secondary actions */
+    --brand-surface: 210 47% 29%;      /* #27476E - Cards, surfaces */
+    --brand-ink: 217 100% 15%;         /* #001D4A - Text, headings */
+    
+    /* Semantic Tokens */
+    --background: 0 0% 98%;
+    --foreground: 217 100% 15%;        /* brand-ink */
+
+    --card: 0 0% 100%;
+    --card-foreground: 217 100% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 100% 15%;
+
+    --primary: 40 95% 46%;             /* brand-accent */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 195 100% 29%;         /* brand-secondary */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 217 40% 45%;
+
+    --accent: 74 67% 86%;              /* brand-success */
+    --accent-foreground: 217 100% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 40 95% 46%;
+
+    --radius: 0.75rem;
+
+    /* Auth-specific tokens */
+    --auth-surface: 210 47% 29%;       /* brand-surface for auth cards */
+    --auth-surface-foreground: 0 0% 100%;
+    
+    /* Spacing scale */
+    --spacing-xs: 0.25rem;   /* 4px */
+    --spacing-sm: 0.5rem;    /* 8px */
+    --spacing-md: 1rem;      /* 16px */
+    --spacing-lg: 1.5rem;    /* 24px */
+    --spacing-xl: 2rem;      /* 32px */
+    --spacing-2xl: 3rem;     /* 48px */
+  }
+
+  .dark {
+    --background: 217 100% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 210 47% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 210 47% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 40 95% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 195 100% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 20%;
+    --muted-foreground: 217 20% 65%;
+
+    --accent: 74 67% 70%;
+    --accent-foreground: 217 100% 15%;
+
+    --destructive: 0 63% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 40% 25%;
+    --input: 210 40% 25%;
+    --ring: 40 95% 46%;
+
+    --auth-surface: 210 47% 20%;
+    --auth-surface-foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Typography */
+  h1 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+  }
+
+  small {
+    @apply text-sm;
+  }
+}
+
+@layer utilities {
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Focus styles for accessibility */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  /* Auth card styling */
+  .auth-card {
+    @apply bg-card border border-border rounded-xl shadow-lg p-8;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+}
